@@ -1,0 +1,16 @@
+<section class="merchant">
+  <img src="{{basicInfo?.bannerImage?.URL}}" class="merchant__banner" alt="Banner Merchant" />
+  <div class="merchant__info">
+    <img src="{{basicInfo?.logoImage?.URL}}" class="merchant__info__logo" alt="Logo Merchant">
+    <h2 class="merchant__info__name">
+      {{basicInfo?.name}} - <small>{{basicInfo?.corporateName}}</small>
+    </h2>
+    <div class="merchant__info__details">
+      <button mat-button (click)="openMerchantDetailsDialog()">Ver Mais</button>
+      <div class="merchant__info__details__minimum-order">
+        Minimum Order {{basicInfo?.minOrderValue?.currency}}
+        {{basicInfo?.minOrderValue?.value | currency }}
+      </div>
+    </div>
+  </div>
+</section>

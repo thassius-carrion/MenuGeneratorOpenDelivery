@@ -1,0 +1,9 @@
+<div id="container">
+  <span>COPY YOUR JSON TEXT HERE:</span>
+  <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="outline">
+      <textarea formControlName="json" matInput name="" id="json" placeholder="{}" cols="50" rows="15"></textarea>
+    </mat-form-field>
+    <button class="btn-validate" type="submit" mat-raised-button>Generate Menu</button>
+  </form>
+</div>

@@ -1,0 +1,31 @@
+<main id="menu-view">
+  <button class="menu--return" mat-mini-fab aria-label (click)="navigateToRoot()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <app-merchant-basic-info></app-merchant-basic-info>
+  <section *ngFor="let menu of menus">
+    <div class="menu">
+      <h1 class="menu__name">{{menu.name}}</h1>
+      <hr>
+      <div class="menu__category" *ngFor="let categoryId of menu.categoryId">
+        <p class="menu__category__name">{{getCategoryById(categoryId)?.name}}</p>
+        <div class="category__content">
+          <div class="content__item-offer" (click)="openItemOfferDetailsDialog(itemOfferId)"
+            *ngFor="let itemOfferId of getCategoryById(categoryId)?.itemOfferId">
+
+            <img class="item-offer__image" src="{{getItemById(getItemOfferById(itemOfferId)?.itemId)?.image?.URL}}">
+
+            <div class="item-offer__details">
+              <h3 class="item-offer__details__name">{{getItemById(getItemOfferById(itemOfferId)?.itemId)?.name}} </h3>
+              <span class="item-offer__details__description">
+                {{getItemById(getItemOfferById(itemOfferId)?.itemId)?.description}}
+              </span>
+              <div class="item-offer__details__price"> {{getItemOfferById(itemOfferId)?.price?.value | currency }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

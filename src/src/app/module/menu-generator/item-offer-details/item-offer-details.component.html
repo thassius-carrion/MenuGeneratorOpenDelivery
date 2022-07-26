@@ -1,0 +1,41 @@
+<main id="item">
+  <header class="item__title">
+    <h2>
+      {{item?.name}}
+    </h2>
+    <mat-icon class="close" (click)="closeItemOfferDetails()">
+      close
+    </mat-icon>
+  </header>
+
+  <section class="item__offer">
+    <img class="item__offer__image" [src]="item?.image?.URL" alt="Item offer image">
+    <div class="item__offer__content" *ngFor="let optionGroupId of itemOffer?.optionGroupsId">
+
+      <div class="option-group">
+        <h3 class="option-group__description">{{getOptionGroupById(optionGroupId)?.description}}</h3>
+        <div class="option-group__quantity">
+          <span class="minimum"> Min: {{getOptionGroupById(optionGroupId)?.minPermitted}} options.</span>
+          <span class="maximum"> Max: {{getOptionGroupById(optionGroupId)?.maxPermitted}} options.</span>
+        </div>
+        <div class="option-group__item" *ngFor="let option of getOptionGroupById(optionGroupId)?.options">
+          <div class="option-group__item-details">
+            <mat-checkbox>
+              {{getItemById(option?.itemId)?.name}}
+            </mat-checkbox>
+            <small> - {{getItemById(option?.itemId)?.description}}</small>
+            <p class="item-details__price">{{option?.price?.value | currency}}</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="item__footer">
+    <span>
+      Price:
+      {{itemOffer?.price?.value | currency}}
+    </span>
+  </footer>
+</main>

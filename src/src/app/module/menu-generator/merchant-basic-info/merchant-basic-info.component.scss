@@ -1,0 +1,83 @@
+.merchant {
+  display: flex;
+  flex-direction: column;
+
+  .merchant__banner {
+    border-radius: 1rem 1rem 0 0;
+    width: auto;
+    height: 14rem;
+
+    max-width: auto;
+    max-height: 10rem;
+  }
+
+  .merchant__info {
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-color: rgb(212, 204, 204);
+
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .merchant__info__logo {
+    width: 6rem;
+    height: 6rem;
+
+    max-width: 6rem;
+    max-height: 6rem;
+
+    border-radius: 100%;
+  }
+
+  .merchant__info__name {
+    flex-grow: 2;
+    margin-left: 2rem;
+    margin-bottom: 0;
+  }
+
+  .merchant__info__details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    margin-right: 2rem;
+
+    .merchant__info__details__minimum-order {
+      margin-left: 2rem;
+    }
+  }
+
+
+
+  @media screen and(max-width:800px) {
+    .merchant__banner {
+      border-radius: 1rem 1rem 0 0;
+
+      height: 8rem;
+
+      max-width: auto;
+      max-height: 10rem;
+    }
+
+    .merchant__info {
+      border: none;
+      padding: 1rem;
+
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  @media screen and(max-width:650px) {
+    .merchant__banner {
+      height: 6rem;
+      max-width: auto;
+      max-height: 8rem;
+    }
+  }
+}
