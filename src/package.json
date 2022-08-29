@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --base-href=/open-delivery-menu-web/"
+    "deploy": "ng build --base-href=/MenuGeneratorOpenDelivery/"
   },
   "private": true,
   "dependencies": {
