@@ -10,7 +10,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "ng build --prod --base-href=/MenuGeneratorOpenDelivery/"
   },
   "private": true,
   "dependencies": {
