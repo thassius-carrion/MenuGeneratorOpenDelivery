@@ -23,7 +23,8 @@ jobs:
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           BRANCH: gh-pages
-          FOLDER: src/dist/open-delivery-menu-web
+          FOLDER: src/dist/MenuGeneratorOpenDelivery
+
 
 
 

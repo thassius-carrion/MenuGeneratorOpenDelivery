@@ -9,7 +9,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --base-href=/MenuGeneratorOpenDelivery/"
+    "deploy": "ng build --base-href=https://thassius-carrion.github.io/MenuGeneratorOpenDelivery/"
   },
   "private": true,
   "dependencies": {
