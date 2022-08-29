@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { IItem } from '../../models/item';
 import { IItemOffer } from '../../models/item-offer';
 import { MerchantService } from '../../service/merchant.service';
@@ -11,16 +11,28 @@ import { MerchantService } from '../../service/merchant.service';
 })
 export class ItemOfferDetailsComponent implements OnInit {
 
-  constructor(private merchantService: MerchantService, @Inject(MAT_DIALOG_DATA) private itemOfferId: string, private itemOfferDetails: MatDialog) { }
+  constructor(private merchantService: MerchantService, @Inject(MAT_DIALOG_DATA) private itemOfferId: string, public dialogRef: MatDialogRef<ItemOfferDetailsComponent>) { }
+  DEFAULT_NOT_AVAILABLE: string = "N/A"
 
-  public readonly itemOffer?: IItemOffer = this.merchantService.getItemOfferById(this.itemOfferId)
-  public readonly item?: IItem = this.merchantService.getItemById(this.itemOffer?.itemId)
+  readonly ICONS = {
+    close: {
+      src: "assets/images/icons/x-circle.svg",
+      alt: "Close"
+    },
+    blackCircle: {
+      src: "assets/images/icons/black-circle.svg",
+      alt: "black-circle"
+    }
+  }
+
+  public readonly ITEM_OFFER?: IItemOffer = this.merchantService.getItemOfferById(this.itemOfferId)
+  public readonly ITEM?: IItem = this.merchantService.getItemById(this.ITEM_OFFER?.itemId)
 
   ngOnInit(): void {
   }
 
   closeItemOfferDetails() {
-    this.itemOfferDetails.closeAll()
+    this.dialogRef.close()
   }
 
   getOptionGroupById(optionGroupId: string) {
@@ -29,6 +41,13 @@ export class ItemOfferDetailsComponent implements OnInit {
 
   getItemById(itemId: string | undefined) {
     return this.merchantService.getItemById(itemId)
+  }
+
+  verifyExistsContent(contentToVerify: string | undefined | string[]): string | string[] {
+    if (!contentToVerify || contentToVerify.length == 0) {
+      return this.DEFAULT_NOT_AVAILABLE
+    }
+    return contentToVerify
   }
 
 }

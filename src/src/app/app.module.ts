@@ -6,6 +6,7 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MenuGeneratorModule } from './module/menu-generator/menu-generator.module';
+import { ViewMenuComponent } from './module/menu-generator/view-menu/view-menu.component';
 
 
 @NgModule({

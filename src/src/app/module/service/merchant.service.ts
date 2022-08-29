@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable, Output } from '@angular/core';
 import { IBasicInfo } from '../models/basic-info';
 import { ICategory } from '../models/category';
 import { IItem } from '../models/item';
@@ -14,6 +14,8 @@ import { IService } from '../models/service';
 export class MerchantService {
 
   constructor() { }
+
+  eventServiceActive = new EventEmitter<string>()
 
   private merchant?: IMerchant;
   setMerchant(merchant: IMerchant | undefined) { this.merchant = merchant; }
@@ -45,7 +47,7 @@ export class MerchantService {
     return this.merchant?.categories?.find(category => category.id == categoryId)
   }
 
-  getMenuById(menuId: string): IMenu | undefined {
+  getMenuById(menuId: string | undefined): IMenu | undefined {
     return this.getMenus?.find(menu => (menu.id == menuId))
   }
 

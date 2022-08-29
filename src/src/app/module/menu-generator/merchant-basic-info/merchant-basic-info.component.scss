@@ -1,83 +1,264 @@
+@use "src/assets/scss/colors"as *;
+
 .merchant {
-  display: flex;
-  flex-direction: column;
+  border: 1px solid $light-grey;
 
-  .merchant__banner {
-    border-radius: 1rem 1rem 0 0;
-    width: auto;
-    height: 14rem;
+  .merchant__suport-banner {
+    position: relative;
 
-    max-width: auto;
-    max-height: 10rem;
-  }
-
-  .merchant__info {
-    border-left: 1px solid;
-    border-right: 1px solid;
-    border-color: rgb(212, 204, 204);
-
-    padding: 1.5rem;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .merchant__info__logo {
-    width: 6rem;
-    height: 6rem;
-
-    max-width: 6rem;
-    max-height: 6rem;
-
-    border-radius: 100%;
-  }
-
-  .merchant__info__name {
-    flex-grow: 2;
-    margin-left: 2rem;
-    margin-bottom: 0;
-  }
-
-  .merchant__info__details {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    margin-right: 2rem;
-
-    .merchant__info__details__minimum-order {
-      margin-left: 2rem;
-    }
-  }
-
-
-
-  @media screen and(max-width:800px) {
     .merchant__banner {
-      border-radius: 1rem 1rem 0 0;
-
-      height: 8rem;
-
-      max-width: auto;
-      max-height: 10rem;
+      height: 215px;
+      background-repeat: no-repeat;
+      background-size: cover;
     }
 
-    .merchant__info {
+    .back {
+      line-height: 0;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      position: absolute;
+
+      top: 26px;
+      left: 22px;
+
+      background-color: $yellow;
+
       border: none;
-      padding: 1rem;
+      border-radius: 6px;
 
+      width: 7rem;
+      height: 2.5rem;
+
+      .icon {
+        margin-right: .4rem;
+      }
+    }
+  }
+
+  .merchant__header {
+    margin: 1rem 0 0 0;
+
+    .merchant__logo {
+      max-width: 120px;
+      max-height: 120px;
+      border: 1px solid $light-grey;
+    }
+
+    .merchant__minimal-info {
+      &>* {
+        display: block;
+      }
+
+      .merchant__sub-title {
+        text-transform: capitalize;
+        margin-top: .6rem;
+
+        &>.sub-title__content {
+          color: $grey;
+          font-weight: 400;
+          text-transform: lowercase;
+        }
+      }
+    }
+
+    .merchant__order {
+      .merchant__order__tag {
+        display: flex;
+
+        max-width: auto;
+        max-height: auto;
+
+        margin-bottom: .6rem;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        .icon {
+          align-self: center;
+
+          width: 25px;
+          max-height: 28px;
+          margin-right: .5rem;
+        }
+
+        .detail {
+          display: block;
+          min-height: 100%;
+          min-width: 18rem;
+
+          color: $black;
+          font-weight: 600;
+
+          padding: .5rem .5rem .5rem 1rem;
+
+          border-radius: 8px;
+          background-color: rgba($u-light-grey, 0.65);
+
+          & .content {
+            color: $yellow;
+          }
+        }
+      }
+
+
+    }
+  }
+
+  .merchant__basic-info {
+    margin-top: 1.5rem;
+
+    .icon {
+      margin-right: .6rem;
+    }
+
+    .address,
+    .other-info,
+    .contact {
+      display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
+      margin: auto;
+      align-items: flex-start;
+
+      .other-info__content,
+      .address__content,
+      .contact__content {
+        display: flex;
+        align-items: center;
+      }
+
+      .contact__content {
+
+        .contact-phone,
+        .contact-whatsapp {
+          display: flex;
+          align-items: center;
+          margin-right: 1rem;
+
+          &:last-child {
+            margin-right: unset;
+          }
+        }
+      }
+
+
+
+      .other-info__title,
+      .contact__title,
+      .address__title {
+        text-transform: capitalize;
+        margin-bottom: .3rem;
+      }
     }
   }
 
-  @media screen and(max-width:650px) {
-    .merchant__banner {
-      height: 6rem;
-      max-width: auto;
-      max-height: 8rem;
+  .merchant__opening-hours {
+    .merchant__opening-hours__header {
+      .icon {
+        margin-right: 1.5rem;
+      }
+
+      .title {
+        text-transform: capitalize;
+      }
+    }
+
+    .merchant__opening-hours__container {
+      color: $black;
+
+      .hours-card {
+        margin: auto;
+        min-width: 340px;
+        max-width: 360px;
+        margin: .3rem .4rem .3rem 0;
+        display: flex;
+
+        border-radius: 8px;
+        background-color: rgba($u-light-grey, 0.65);
+
+        .icon {
+          max-width: 15px;
+          max-height: 20px;
+        }
+
+        .title {
+          min-width: 7rem;
+          padding: .5rem;
+          text-align: center;
+
+          border-radius: inherit;
+          border-top-right-radius: unset;
+          border-bottom-right-radius: unset;
+
+          margin-right: .5rem;
+
+          background-color: $yellow;
+
+          font-weight: 700;
+        }
+      }
+
     }
   }
+}
+
+@media screen and (max-width:750px) {
+
+  .merchant__suport-banner {
+    .merchant__banner {
+      height: 150px !important;
+
+      img {
+        max-height: inherit;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:500px) {
+
+  .merchant {
+
+    .icon {
+      max-width: 22px;
+      max-height: 26px;
+    }
+
+
+    .merchant__suport-banner {
+      position: relative;
+
+      .merchant__banner {
+        height: 120px !important;
+      }
+
+      .back {
+        left: 6px;
+
+        max-width: 90px;
+        max-height: 35px;
+      }
+    }
+
+    .merchant__header {
+
+      .merchant__logo {
+        max-width: 80px;
+        max-height: 80px;
+      }
+
+      .merchant__order {
+
+        .merchant__order__tag {
+
+          .detail {
+            max-width: 17rem;
+            padding: .3rem 0;
+          }
+        }
+      }
+    }
+  }
+
 }

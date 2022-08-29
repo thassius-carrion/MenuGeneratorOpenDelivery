@@ -21,23 +21,32 @@ export class MenuGeneratorComponent implements OnInit {
   ngOnInit() {
   }
 
-  private readonly menuPath = '/menu';
+  public readonly FORM_LABEL: string = "COPY YOUR JSON TEXT HERE:"
+  public readonly BUTTON_GENERATE_MENU: string = "Generate Menu"
+  public readonly MENU_PATH: string = '/menu';
+
+  public readonly JSON_INVALID_MESSAGE: string = "Error parsing JSON, JSON data is incomplete. Please, try again.";
+
+  public showError: boolean = false;
+
   readonly form: FormGroup<IFormSubmit>;
   get getFormControls() { return this.form.controls; }
 
   onSubmit(): void {
     try {
       const jsonString = this.getFormControls.json.value
+      
       const merchant: IMerchant = JSON.parse(jsonString)
       this.merchantService.setMerchant(merchant)
       this.navigateToMenu();
     }
-    catch (error) {
-      console.error("ERROR:", error)
+    catch (error: any) {
+      this.showError = true;
+      throw Error(error)    
     }
   }
 
-  navigateToMenu() {
-    this.router.navigateByUrl(this.menuPath)
+  navigateToMenu(): void {
+    this.router.navigateByUrl(this.MENU_PATH)
   }
 }

@@ -1,4 +1,4 @@
 export enum DisponibilityEnum {
-    "UNAVAILABLE",
-    "AVAILABLE"
+    "UNAVAILABLE" = "UNAVAILABLE",
+    "AVAILABLE" = "AVAILABLE"
 }

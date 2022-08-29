@@ -4,7 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MerchantDetailsComponent } from './merchant-details/merchant-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MenuGeneratorComponent } from './menu-generator.component';
 import { MatCardModule } from '@angular/material/card';
@@ -15,14 +14,18 @@ import { MenuComponent } from './menu/menu.component';
 import { MerchantBasicInfoComponent } from './merchant-basic-info/merchant-basic-info.component';
 import { ItemOfferDetailsComponent } from './item-offer-details/item-offer-details.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TooltipComponent } from 'src/app/core/shared/tooltip/tooltip.component';
+import { ViewMenuComponent } from './view-menu/view-menu.component';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
 
 @NgModule({
   declarations: [
     MenuGeneratorComponent,
-    MerchantDetailsComponent,
     MenuComponent,
     MerchantBasicInfoComponent,
-    ItemOfferDetailsComponent
+    ItemOfferDetailsComponent,
+    TooltipComponent,
+    ViewMenuComponent
   ],
   imports: [
     MatButtonModule,
@@ -36,7 +39,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatButtonToggleModule
   ]
 })
 export class MenuGeneratorModule { }

@@ -7,7 +7,7 @@ export interface ICategory {
     name: string
     description: string
     image: IImage,
-    status: DisponibilityEnum
+    status: string
     externalCode: string
     availabilityId: string[]
     itemOfferId: string[]

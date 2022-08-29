@@ -12,6 +12,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  readonly PROGRAMMERS_LOGO_ALTERNATIVE_TEXT: string = "Programmers Beyond IT Brasil";
   readonly PROGRAMMERS_LOGO_PATH: string = "assets/images/logo/programmers-branco.webp";
 
 }

@@ -4,6 +4,6 @@ export interface IMenu {
     description: string
     externalCode: string
     disclaimer: string
-    disclaimerURL: string
+    disclaimerURL?: string 
     categoryId: string[]
 }

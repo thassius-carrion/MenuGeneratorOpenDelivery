@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MenuComponent } from './menu.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatDialogModule } from '@angular/material/dialog';
+import { RouterTestingModule } from '@angular/router/testing';
+import { MenuComponent } from '../menu.component';
 
 describe('MenuComponent', () => {
   let component: MenuComponent;
@@ -7,6 +10,11 @@ describe('MenuComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        MatDialogModule,
+        MatButtonToggleModule
+      ],
       declarations: [MenuComponent]
     })
       .compileComponents();

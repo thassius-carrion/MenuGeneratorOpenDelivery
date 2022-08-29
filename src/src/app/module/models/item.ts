@@ -7,8 +7,8 @@ export interface IItem {
     description: string
     externalCode: string
     image: IImage
-    nutritionalInfo: INutritionalInfo
-    serving: number
+    nutritionalInfo?: INutritionalInfo
+    serving?: number
     unit: string
-    ean: string
+    ean?: string
 }

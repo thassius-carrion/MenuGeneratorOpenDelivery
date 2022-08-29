@@ -1,4 +1,4 @@
 export interface IImage {
     URL: string
-    CRC_32: string
+    "CRC-32": string
 }
