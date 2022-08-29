@@ -31,6 +31,10 @@ jobs:
           name: production-files
           path: ./dist
 
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: ./dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
