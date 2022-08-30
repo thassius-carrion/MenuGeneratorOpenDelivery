@@ -130,7 +130,7 @@ describe('Merchant Service', () => {
   });
 
   it('should getMerchant return correct data', () => {
-    expect(service.getMerchant).toBe(undefined)
+    expect(service.getMerchant).toBe(merchantTest)
   });
 
   it('should getBasicInfo return correct data', () => {
