@@ -18,8 +18,9 @@ jobs:
           npm ci
           npm run-script deploy
       
-      - uses: browser-actions/setup-chrome@latest  
-        run: chrome --version
+      - uses: browser-actions/setup-chrome@latest 
+       
+      - run: chrome --version
 
       - name: Unit Tests
         run: |
