@@ -4,8 +4,8 @@ on:
     branches:
       - main
 jobs:
-  build-test-deploy:
-    name: Build, Test and Deploy
+  build:
+    name: Build
     runs-on: ubuntu-latest
 
     steps:
@@ -18,11 +18,15 @@ jobs:
           npm ci
           npm run-script deploy
 
-      - name: Unit Tests
-        run: |
-          cd src
-          npm run-script test
-  
+      # - name: Unit Tests
+      #   run: |
+      #     cd src
+      #     npm run-script test
+  deploy:
+    name: Deploy
+    needs: build
+
+    steps:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
