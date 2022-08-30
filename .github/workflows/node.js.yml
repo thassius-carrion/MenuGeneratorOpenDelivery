@@ -19,7 +19,9 @@ jobs:
           npm run-script deploy
       
       - name: Unit Tests
-        run: ng test --watch false
+        run: |
+          cd src
+          ng test --watch false
   
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@releases/v3
